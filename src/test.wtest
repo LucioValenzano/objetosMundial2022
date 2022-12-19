@@ -1,0 +1,16 @@
+import example.*
+
+const afa = new Seleccion (paisQueRepresenta=argentina,mundialesGanados=2,golesMetidos=3)
+const francesa = new Seleccion (paisQueRepresenta=francia,mundialesGanados=1,golesMetidos=0)
+const argentina = new Sede (pbi=2)
+const francia = new Sede (pbi=5,criterio=new GanoMundiales(cantMundiales=1))
+
+test "campeon AFA" {
+	fifa.agregarSeleccion(afa)
+	fifa.agregarSeleccion(francesa)
+	fifa.agregarSede(argentina)
+	fifa.agregarSede(francia)
+	
+	assert.that(francia == fifa.sedeMundial())
+	assert.that(afa == fifa.elegirCampeon())
+}
